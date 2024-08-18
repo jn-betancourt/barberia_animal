@@ -1,5 +1,10 @@
 package com.barberia_animal.dto;
 
-public record MascotaDto() {
+public record MascotaDto(
+
+    int id,
+    String nombre,
+    Raza raza,
+    String condiciones) {
     
 }
