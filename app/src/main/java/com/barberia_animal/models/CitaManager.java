@@ -7,11 +7,11 @@ import java.io.IOException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class CitaManager {
+public class CitaManager implements Manager{
     private static final String pathInfo = "src/main/resources/com/Barberia_Animal/db/users.json";
     private static List<Cita> citas;
 
-    public static void cargarDatos() {
+    public void cargarDatos() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             citas = objectMapper.readValue(new File(pathInfo), new TypeReference<List<Cita>>() {
@@ -26,7 +26,7 @@ public class CitaManager {
         }
     }
 
-    public static void guardarDatos() {
+    public void guardarDatos() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writeValue(new File(pathInfo), citas);
@@ -39,8 +39,8 @@ public class CitaManager {
         return citas;
     }
 
-    public static void setCitas(List<Cita> citas) {
+    public static void setCitas(List<Cita> citas, Manager manager) {
         CitaManager.citas = citas;
-        guardarDatos(); // Guardar datos inmediatamente después de modificar
+        manager.guardarDatos(); // Guardar datos inmediatamente después de modificar
     }
 }

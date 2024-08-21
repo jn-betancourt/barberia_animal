@@ -4,5 +4,4 @@ public interface Manager {
     
     void cargarDatos ();
     void guardarDatos ();
-    
 }

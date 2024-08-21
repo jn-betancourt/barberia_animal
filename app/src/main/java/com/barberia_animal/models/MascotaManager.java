@@ -7,11 +7,11 @@ import java.io.IOException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class MascotaManager {
+public class MascotaManager implements Manager{
     private static final String pathInfo = "src/main/resources/com/Barberia_Animal/db/users.json";
     private static List<Mascota> mascotas;
 
-    public static void cargarDatos() {
+    public  void cargarDatos() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             mascotas = objectMapper.readValue(new File(pathInfo), new TypeReference<List<Mascota>>() {
@@ -26,7 +26,7 @@ public class MascotaManager {
         }
     }
 
-    public static void guardarDatos() {
+    public  void guardarDatos() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writeValue(new File(pathInfo), mascotas);
@@ -39,8 +39,8 @@ public class MascotaManager {
         return mascotas;
     }
 
-    public static void setMascotas(List<Mascota> mascotas) {
+    public static void setMascotas(List<Mascota> mascotas, Manager manager) {
         MascotaManager.mascotas = mascotas;
-        guardarDatos(); // Guardar datos inmediatamente después de modificar
+        manager.guardarDatos(); // Guardar datos inmediatamente después de modificar
     }
 }

@@ -9,7 +9,6 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-
 public class Usuario {
     private static int contadorObjetos = 0;
     private int id;
@@ -22,7 +21,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, String email, String contraseña, List<Mascota> mascotas) {
+    private Usuario(int id, String nombre, String email, String contraseña, List<Mascota> mascotas) {
 
         if (id == 0) {
             int idNuevo = ++Usuario.contadorObjetos;

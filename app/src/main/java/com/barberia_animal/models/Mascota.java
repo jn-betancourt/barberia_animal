@@ -7,8 +7,7 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-
-public class Mascota {
+public class Mascota{
     private static int contadorObjetos = 0;
     private int id;
     private String nombre;

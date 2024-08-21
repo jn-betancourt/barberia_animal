@@ -1,10 +1,12 @@
 package com.barberia_animal.dto;
 
-public record MascotaDto(
+import com.barberia_animal.models.Raza;
 
+public record MascotaDto(
     int id,
     String nombre,
     Raza raza,
-    String condiciones) {
+    String condiciones
+) {
     
 }

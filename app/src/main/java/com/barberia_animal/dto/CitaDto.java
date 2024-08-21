@@ -1,10 +1,7 @@
 package com.barberia_animal.dto;
 
-public record CitaDto(
+import java.time.LocalDateTime;
 
-    int id,
-    Usuario usuario,
-    Mascota mascota,
-    LocalDateTime agenda) {
+public record CitaDto(int id, UsuarioDto usuario, MascotaDto mascota, LocalDateTime agenda) {
     
 }
