@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.barberia_animal.controllers.DashboardController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="365.0" prefWidth="663.0">
+         <children>
+            <Button layoutX="577.0" layoutY="330.0" mnemonicParsing="false" onAction="#crearCita" text="nueva cita" />
+            <ListView fx:id="citas" layoutX="14.0" layoutY="41.0" prefHeight="289.0" prefWidth="633.0" />
+            <Label layoutX="14.0" layoutY="8.0" prefHeight="31.0" prefWidth="118.0" text="Citas pendientes" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
