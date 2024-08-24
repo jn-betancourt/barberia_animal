@@ -13,9 +13,9 @@ import com.barberia_animal.dao.usuario.UsuarioDaoImpl;
 import com.barberia_animal.dto.CitaDto;
 import com.barberia_animal.dto.MascotaDto;
 import com.barberia_animal.dto.UsuarioDto;
-import com.barberia_animal.models.Cita;
-import com.barberia_animal.models.Mascota;
-import com.barberia_animal.models.Usuario;
+import com.barberia_animal.models.cita.Cita;
+import com.barberia_animal.models.mascota.Mascota;
+import com.barberia_animal.models.usuario.Usuario;
 
 public class CitaService {
     private CitaDao citaDao;
@@ -94,8 +94,8 @@ public class CitaService {
         Cita citaNueva = citaDao.guardar(usuarioNuevo, agenda, mascotaNueva);
         return convertirToDto(citaNueva);
     }
-    public CitaDto obtenerCita(CitaDto citaDto){
-        Optional<Cita> cita = citaDao.getCitaById(citaDto.id());
+    public CitaDto obtenerCita(int idCita){
+        Optional<Cita> cita = citaDao.getCitaById(idCita);
         CitaDto citaDto1 = null;
         if (cita.isPresent()){
             citaDto1 = convertirToDto(cita.get());
@@ -116,5 +116,9 @@ public class CitaService {
         boolean eliminados = eliminado && eliminado2 && eliminado3;
         return eliminados;
     };
+
+    public List<Cita> getAll(){
+        return citaDao.getAll();
+    }
 
 }

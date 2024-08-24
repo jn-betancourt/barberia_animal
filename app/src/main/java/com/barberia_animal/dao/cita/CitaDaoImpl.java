@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-import com.barberia_animal.models.Cita;
-import com.barberia_animal.models.CitaManager;
 import com.barberia_animal.models.Manager;
-import com.barberia_animal.models.Mascota;
-import com.barberia_animal.models.Usuario;
+import com.barberia_animal.models.cita.Cita;
+import com.barberia_animal.models.cita.CitaManager;
+import com.barberia_animal.models.mascota.Mascota;
+import com.barberia_animal.models.usuario.Usuario;
 
 public class CitaDaoImpl implements CitaDao{
 
@@ -67,7 +67,7 @@ public class CitaDaoImpl implements CitaDao{
     }
 
     public Optional<Cita> filtrarByAgenda(LocalDateTime agenda){
-        Predicate<Cita> condicion = c -> agenda.equals(agenda);
+        Predicate<Cita> condicion = c -> agenda.isBefore(agenda);
         Optional<Cita> opcional = CitaManager.getCitas().stream().filter(condicion).findAny();
         return opcional;
     }
@@ -84,6 +84,7 @@ public class CitaDaoImpl implements CitaDao{
         return lista;
     }
 
+    @Override
     public List<Cita> getAll() {
         return CitaManager.getCitas();
     }

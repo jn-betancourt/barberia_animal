@@ -1,7 +1,7 @@
 package com.barberia_animal.dao.mascota;
 
-import com.barberia_animal.models.Mascota;
-import com.barberia_animal.models.Raza;
+import com.barberia_animal.models.mascota.Mascota;
+import com.barberia_animal.models.mascota.Raza;
 
 public interface MascotaDao {
     Mascota guardar(String nombre, Raza raza, String condiciones);

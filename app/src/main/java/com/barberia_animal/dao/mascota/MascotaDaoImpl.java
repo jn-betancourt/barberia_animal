@@ -5,15 +5,15 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import com.barberia_animal.models.Manager;
-import com.barberia_animal.models.Mascota;
-import com.barberia_animal.models.MascotaManager;
-import com.barberia_animal.models.Raza;
+import com.barberia_animal.models.mascota.Mascota;
+import com.barberia_animal.models.mascota.MascotaManager;
+import com.barberia_animal.models.mascota.Raza;
 
 public class MascotaDaoImpl implements MascotaDao {
-    private Manager dataManager;
+    private Manager dataManager = new MascotaManager();
 
     public MascotaDaoImpl(){
-        dataManager = new MascotaManager();
+        dataManager.cargarDatos();
     }
 
     @Override
@@ -53,6 +53,9 @@ public class MascotaDaoImpl implements MascotaDao {
     @Override
     public Mascota guardar(String nombre, Raza raza, String condiciones) {
         Mascota nuevaMascota = Mascota.builder().nombre(nombre).raza(raza).condiciones(condiciones).build();
+        List<Mascota> mascotas = MascotaManager.getMascotas();
+        mascotas.add(nuevaMascota);
+        MascotaManager.setMascotas(mascotas, dataManager);
         return nuevaMascota;
     }
 }

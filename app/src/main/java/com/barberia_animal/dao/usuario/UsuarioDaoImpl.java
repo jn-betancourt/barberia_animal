@@ -5,9 +5,9 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import com.barberia_animal.models.Manager;
-import com.barberia_animal.models.Mascota;
-import com.barberia_animal.models.Usuario;
-import com.barberia_animal.models.UsuarioManager;
+import com.barberia_animal.models.mascota.Mascota;
+import com.barberia_animal.models.usuario.Usuario;
+import com.barberia_animal.models.usuario.UsuarioManager;
 
 public class UsuarioDaoImpl implements UsuarioDao{
     private Manager dataManager = new UsuarioManager();

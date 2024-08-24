@@ -1,6 +1,6 @@
 package com.barberia_animal.dto;
 
-import com.barberia_animal.models.Raza;
+import com.barberia_animal.models.mascota.Raza;
 
 public record MascotaDto(
     int id,
